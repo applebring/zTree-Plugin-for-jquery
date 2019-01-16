@@ -1,0 +1,126 @@
+		/*树图背景*/
+		
+		.ztree li span.button.chk {
+			width: 30px;
+			height: 30px;
+		}
+		
+		.ztree li a {
+			height: 30px;
+			line-height: 30px;
+			font-size: 18px;
+			vertical-align: middle;
+		}
+		
+		.ztree li span.button {
+			background-image: url("../resources/images/tree_icon.png");
+		}
+		/*未选择样式*/
+		
+		.ztree li span.button.chk.checkbox_false_full,
+		.ztree li span.button.chk.checkbox_false_full_focus {
+			background-position: -2px -69px;
+		}
+		/*选中样式*/
+		
+		.ztree li span.button.chk.checkbox_true_full,
+		.ztree li span.button.chk.checkbox_true_part,
+		.ztree li span.button.chk.checkbox_true_full_focus,
+		.ztree li span.button.chk.checkbox_false_part,
+		.ztree li span.button.chk.checkbox_false_part_focus {
+			background-position: -37px -69px;
+		}
+		/*鼠标经过样式*/
+		
+		.ztree li span.button.chk.checkbox_true_part_focus {
+			background-position: -37px -69px !important;
+		}
+		/*文件图标隐藏*/
+		
+		.ztree li span.button.ico_open,
+		.ztree li span.button.ico_close,
+		.ztree li span.button.ico_docu {
+			display: none;
+		}
+		
+		.content_wrap {
+			position: relative;
+			width: 600px;
+			margin: 0 auto;
+			border: 1px solid #ddd;
+			padding: 10px;
+			height: 400px;
+		}
+		
+		.content_wrap .left,
+		.tree-content {
+			position: absolute;
+			width: 300px;
+			border-right: 1px solid #ddd;
+			left: 0;
+			top: 10px;
+			bottom: 10px;
+		}
+		
+		.input-search {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			text-align: center;
+		}
+		
+		.input-search input {
+			box-sizing: border-box;
+			width: 80%;
+			height: 30px;
+			padding: 0 10px;
+			border-radius: 15px;
+			border: 1px solid #ddd;
+			outline: none;
+		}
+		
+		.tree-content {
+			top: 50px;
+			overflow-y: scroll;
+		}
+		
+		.content_wrap .right {
+			/*min-width: 400px;*/
+			padding-left: 300px;
+		}
+		
+		.choose-content {
+			font-size: 14px;
+			line-height: 30px;
+			height: 380px;
+			overflow-y: scroll;
+		}
+		
+		.choose-content>li {
+			position: relative;
+		}
+		
+		.choose-content .close {
+			width: 20px;
+			height: 20px;
+			display: inline-block;
+			position: absolute;
+			right: 20px;
+			background-color: #ddd;
+			text-align: center;
+			border-radius: 10px;
+			font-size: 14px;
+			line-height: 20px;
+			cursor: pointer;
+		}
+		
+		.ztree li a.curSelectedNode {
+			height: 30px;
+			text-decoration: none;
+		}
+		
+		.ztree li a.curSelectedNode.unactive {
+			background-color: transparent;
+			border: 1px solid transparent;
+		}
