@@ -40,9 +40,9 @@
 字段|参数值
 -|-|
 selector|树图id
-params|参数对象{}
-zNodes|树图zNodes值
-setting|树图配置项
+params| Object 参数对象{zNodes:[],setting:{}}
+zNodes| Array 树图zNodes值
+setting|Object 树图配置项
 ## api
 api名称|api用途
 -|-|
@@ -52,10 +52,14 @@ getCheckData|获取已选中值
 
 ## 使用示范
 ```
+		//拿取树图对象
 		var tree = $("#treeDemo").TransferTree({
-			zNodes:zNodes,
-			filter:''
+			zNodes:zNodes
 		});
+		//通过树节点id拿取所有选中的节点id数组[0,1,2,3]
+		var getData = tree.getCheckData('id');
+		//点击确认后拿取所有选中节点obj数组对象[{},{}]
+		var getData2 = tree.getCheckData('obj');
 ```
 
 

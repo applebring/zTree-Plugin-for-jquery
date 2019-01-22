@@ -4,17 +4,15 @@
 	<meta charset="UTF-8">
 	<title>orgTree</title>
 </head>
-	<link rel="stylesheet" href="./css/zTreeStyle.css" type="text/css">
-<link rel="stylesheet" href="./css/tree.css">
-<style>
-	
-</style>
+<link rel="stylesheet" href="./resources/libs/zTree_v3/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" href="./resources/css/tree.css">
 <body>
-<h1>基于zTree树部门成员选择器插件</h1>
+	<h1>基于zTree树部门成员选择器插件</h1>
 	<div class="content_wrap">
 		<div class="zTreeDemoBackground left">
 			<div class="input-search">
-				<input type="text" placeholder="输入关键字查询" id="filter-text" class="empty" /><span style="color:red;font-size:12px;position:absolute;left:0;right:0;top:40px;display:none;" class="no-data">查找不到结果~</span>
+				<input type="text" placeholder="输入关键字查询" id="filter-text" class="empty" /><span style="color:red;font-size:12px;position:absolute;left:0;right:0;top:40px;display:none;"
+				 class="no-data">查找不到结果~</span>
 			</div>
 			<div class="tree-content">
 				<ul id="treeDemo" class="ztree"></ul>
@@ -25,31 +23,67 @@
 			</ul>
 		</div>
 	</div>
+	<br/>
+	<button id="btn-reset">重置数据项</button>&nbsp;<button id="btn-confirm-id">获取选中数据(id)</button>&nbsp;<button id="btn-confirm-obj">获取选中数据(obj)</button>
+	<div class="choose-data">
+		<div class="choose-data">
+			<span>当前选中数据为:</span><br/>
+			<div class="data">暂无数据</div>
+		</div>
 </body>
-	<script type="text/javascript" src="./js/jquery-2.2.3.min.js"></script>
-	<script type="text/javascript" src="./js/jquery.ztree.core.js"></script>
-	<script type="text/javascript" src="./js/jquery.ztree.excheck.js"></script>
-	<script type="text/javascript" src="./js/tree.js"></script>
-	<script>
-		var zNodes = [
-					{ id: 1, pId: 0, name: "集团", open: true, checked: false,searchdata:"集团" },
-					{ id: 11, pId: 1, name: "一汽", open: true, checked: false,searchdata:'集团一汽' },
-					{ id: 111, pId: 11, name: "一汽子成员1", checked: false,searchdata:'集团一汽一汽子成员1' },
-					{ id: 112, pId: 11, name: "一汽子成员2", checked: false,searchdata:'集团一汽一汽子成员2' },
-					{ id: 12, pId: 1, name: "二汽", open: true, checked: false,searchdata:'集团二汽' },
-					{ id: 121, pId: 12, name: "二汽子成员1", checked: false,searchdata:'集团二汽二汽子成员1' },
-					{ id: 122, pId: 12, name: "二汽子成员2", checked: false,searchdata:'集团二汽二汽子成员2' },
-					{ id: 2, pId: 0, name: "集团 2", checked: true, open: true,searchdata:'' },
-					{ id: 21, pId: 2, name: "一汽", checked: true,searchdata:'' },
-					{ id: 22, pId: 2, name: "二汽", open: true, checked: false,searchdata:'' },
-					{ id: 221, pId: 22, name: "二汽1", checked: true,searchdata:'' },
-					{ id: 222, pId: 22, name: "二汽2", checked: true,searchdata:'' },
-					{ id: 23, pId: 2, name: "三汽", checked: false,searchdata:'' }
-				];
-		var tree = $("#treeDemo").TransferTree({
-			zNodes:zNodes,
-			filter:''
-		});
-		console.log("tree",tree);
-	</script>
+<script type="text/javascript" src="./resources/libs/jQuery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="./resources/libs/zTree_v3/js/jquery.ztree.core.js"></script>
+<script type="text/javascript" src="./resources/libs/zTree_v3/js/jquery.ztree.excheck.js"></script>
+<script type="text/javascript" src="./resources/js/tree.js"></script>
+<script>
+	var zNodes = [
+		{ id: 1, pId: 0, name: "集团", open: true, checked: false, searchdata: "集团" },
+		{ id: 11, pId: 1, name: "一汽", open: true, checked: false, searchdata: '集团一汽' },
+		{ id: 111, pId: 11, name: "一汽子成员1", checked: false, searchdata: '集团一汽一汽子成员1' },
+		{ id: 112, pId: 11, name: "一汽子成员2", checked: false, searchdata: '集团一汽一汽子成员2' },
+		{ id: 12, pId: 1, name: "二汽", open: true, checked: false, searchdata: '集团二汽' },
+		{ id: 121, pId: 12, name: "二汽子成员1", checked: false, searchdata: '集团二汽二汽子成员1' },
+		{ id: 122, pId: 12, name: "二汽子成员2", checked: false, searchdata: '集团二汽二汽子成员2' },
+		{ id: 2, pId: 0, name: "集团 2", checked: true, open: true, searchdata: '集团 2' },
+		{ id: 21, pId: 2, name: "一汽", checked: true, searchdata: '集团 2一汽' },
+		{ id: 22, pId: 2, name: "二汽", open: true, checked: false, searchdata: '集团 2二汽' },
+		{ id: 221, pId: 22, name: "二汽1", checked: true, searchdata: '集团 2二汽二汽1' },
+		{ id: 222, pId: 22, name: "二汽2", checked: true, searchdata: '集团 2二汽二汽2' },
+		{ id: 23, pId: 2, name: "三汽", checked: false, searchdata: '集团 2二汽三汽' }
+	];
+	var tree = $("#treeDemo").TransferTree({
+		zNodes: zNodes
+	});
+	//重置选择项
+	$("#btn-reset").on("click", function () {
+		//按照zTree数据格式
+		var resetzNodes = [
+			{ id: 1, pId: 0, name: "集团", open: true, checked: false, searchdata: "集团" },
+			{ id: 11, pId: 1, name: "一汽", open: true, checked: false, searchdata: '集团一汽' },
+			{ id: 111, pId: 11, name: "一汽子成员1", checked: true, searchdata: '集团一汽一汽子成员1' },
+			{ id: 112, pId: 11, name: "一汽子成员2", checked: true, searchdata: '集团一汽一汽子成员2' },
+			{ id: 12, pId: 1, name: "二汽", open: true, checked: false, searchdata: '集团二汽' },
+			{ id: 121, pId: 12, name: "二汽子成员1", checked: false, searchdata: '集团二汽二汽子成员1' },
+			{ id: 122, pId: 12, name: "二汽子成员2", checked: false, searchdata: '集团二汽二汽子成员2' },
+			{ id: 2, pId: 0, name: "集团 2", checked: true, open: true, searchdata: '集团 2' },
+			{ id: 21, pId: 2, name: "一汽", checked: true, searchdata: '集团 2一汽' },
+			{ id: 22, pId: 2, name: "二汽", open: true, checked: false, searchdata: '集团 2二汽' },
+			{ id: 221, pId: 22, name: "二汽1", checked: false, searchdata: '集团 2二汽二汽1' },
+			{ id: 222, pId: 22, name: "二汽2", checked: false, searchdata: '集团 2二汽二汽2' },
+			{ id: 23, pId: 2, name: "三汽", checked: false, searchdata: '集团 2二汽三汽' }
+		];
+		tree.resetData(resetzNodes);
+	});
+	//获取选中项by id
+	$("#btn-confirm-id").on("click", function () {
+		var getData = tree.getCheckData('id');
+		$(".data").html(getData.toString());
+	});
+	//获取选中项by obj
+	$("#btn-confirm-obj").on("click", function () {
+		var getData2 = tree.getCheckData('obj');
+		$(".data").html(JSON.stringify(getData2));
+	});
+</script>
+
 </html>
